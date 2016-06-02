@@ -75,7 +75,7 @@ public final class CQPlayerListener implements Listener {
                     } else if (length > 1) {
                         if (typeSegments[0].equals("killplayer") && outcomeProgress.getProgress().toString().equals("0")) {
                             final String playerID = typeSegments[1];
-                            if (killed.getUniqueId().equals(playerID)) {
+                            if (killed.getUniqueId().toString().equals(playerID)) {
                                 outcomeProgress.setProgress(1);
                                 questInstance.objectiveComplete(objectiveProgress, outcomeProgress);
                             }
