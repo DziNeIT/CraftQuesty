@@ -1,11 +1,18 @@
+# General
 *.class
+
+# Eclipse
 bin/
-target/
-*.iml
-.idea/
 .project
 .classpath
 .settings/
+
+# Maven
+target/
+
+# IntelliJ
+*.iml
+.idea/
 
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
