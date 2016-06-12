@@ -14,6 +14,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 import pw.ollie.questy.craftquesty.listener.mc.CQBlockListener;
 import pw.ollie.questy.craftquesty.listener.mc.CQEntityListener;
 import pw.ollie.questy.craftquesty.listener.mc.CQPlayerListener;
+import pw.ollie.questy.craftquesty.listener.questy.CQQuestListener;
 
 import java.io.File;
 import java.util.logging.Level;
@@ -48,10 +49,13 @@ public final class CraftQuestyPlugin extends JavaPlugin {
         final Server server = this.getServer();
         final PluginManager serverPluginManager = server.getPluginManager();
 
-        // register the plugin's various listeners
+        // register the plugin's various Bukkit listeners
         serverPluginManager.registerEvents(new CQBlockListener(this), this);
         serverPluginManager.registerEvents(new CQEntityListener(this), this);
         serverPluginManager.registerEvents(new CQPlayerListener(this), this);
+
+        // register the questy listener
+        this.questyEventManager.register(new CQQuestListener(this));
     }
 
     @Override
