@@ -23,7 +23,7 @@ import java.util.Set;
 import java.util.UUID;
 
 /**
- * Listens to Bukkit {@link Event}s which are {@link PlayerEvent}s for quest handling purposes.
+ * Listens to Bukkit {@link Event}s which are PlayerEvents for quest handling purposes.
  */
 public final class CQPlayerListener implements Listener {
     private final CraftQuestyPlugin cqPlugin;
@@ -31,7 +31,7 @@ public final class CQPlayerListener implements Listener {
 
     public CQPlayerListener(CraftQuestyPlugin cqPlugin) {
         this.cqPlugin = cqPlugin;
-        this.questManager = cqPlugin.getQuestManager();
+        this.questManager = cqPlugin.getQuestyManager().getQuestManager();
     }
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
