@@ -1,4 +1,4 @@
 name: CraftQuesty
 version: 0.1-a
 description: Bukkit plugin implementing some simple quests to show off the functionality of Questy
-main: pw.ollie.questy.craftquesty.CraftQuestyPlugin
+main: CraftQuestyPlugin

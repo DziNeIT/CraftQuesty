@@ -1,4 +1,4 @@
-package pw.ollie.questy.craftquesty.listener.questy;
+package pw.ollie.craftquesty.listener.questy;
 
 import com.volumetricpixels.questy.Quest;
 import com.volumetricpixels.questy.event.Listen;
@@ -9,7 +9,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.PlayerInventory;
 
-import pw.ollie.questy.craftquesty.CraftQuestyPlugin;
+import pw.ollie.craftquesty.CraftQuestyPlugin;
 
 import java.util.UUID;
 import java.util.regex.Pattern;

@@ -1,4 +1,4 @@
-package pw.ollie.questy.craftquesty.listener.mc;
+package pw.ollie.craftquesty.listener.mc;
 
 import com.volumetricpixels.questy.QuestInstance;
 import com.volumetricpixels.questy.QuestManager;
@@ -16,7 +16,7 @@ import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 
-import pw.ollie.questy.craftquesty.CraftQuestyPlugin;
+import pw.ollie.craftquesty.CraftQuestyPlugin;
 
 import java.util.Collection;
 import java.util.Set;
