@@ -5,7 +5,6 @@ import com.volumetricpixels.questy.QuestManager;
 import com.volumetricpixels.questy.objective.ObjectiveProgress;
 import com.volumetricpixels.questy.objective.Outcome;
 import com.volumetricpixels.questy.objective.OutcomeProgress;
-
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -15,7 +14,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-
 import pw.ollie.craftquesty.CraftQuestyPlugin;
 
 import java.util.Collection;
@@ -26,11 +24,9 @@ import java.util.UUID;
  * Listens to Bukkit {@link Event}s which are PlayerEvents for quest handling purposes.
  */
 public final class CQPlayerListener implements Listener {
-    private final CraftQuestyPlugin cqPlugin;
     private final QuestManager questManager;
 
     public CQPlayerListener(CraftQuestyPlugin cqPlugin) {
-        this.cqPlugin = cqPlugin;
         this.questManager = cqPlugin.getQuestyManager().getQuestManager();
     }
 
@@ -66,26 +62,24 @@ public final class CQPlayerListener implements Listener {
                 final String[] typeSegments = outcome.getType().split("_");
                 final int length = typeSegments.length;
 
-                if (length != 0) {
-                    if (length == 1) {
-                        if (typeSegments[0].equals("killplayer") && outcomeProgress.getProgress().toString().equals("0")) { // case-sensitive
+                if (length == 1) {
+                    if (typeSegments[0].equals("killplayer") && outcomeProgress.getProgress().toString().equals("0")) { // case-sensitive
+                        outcomeProgress.setProgress(1);
+                        questInstance.objectiveComplete(objectiveProgress, outcomeProgress);
+                    }
+                } else if (length > 1) {
+                    if (typeSegments[0].equals("killplayer") && outcomeProgress.getProgress().toString().equals("0")) {
+                        final String playerID = typeSegments[1];
+                        if (killed.getUniqueId().toString().equals(playerID)) {
                             outcomeProgress.setProgress(1);
                             questInstance.objectiveComplete(objectiveProgress, outcomeProgress);
                         }
-                    } else if (length > 1) {
-                        if (typeSegments[0].equals("killplayer") && outcomeProgress.getProgress().toString().equals("0")) {
-                            final String playerID = typeSegments[1];
-                            if (killed.getUniqueId().toString().equals(playerID)) {
-                                outcomeProgress.setProgress(1);
-                                questInstance.objectiveComplete(objectiveProgress, outcomeProgress);
-                            }
-                        } else if (typeSegments[0].equals("killplayers")) {
-                            final int killsNeeded = Integer.valueOf(typeSegments[1]); // if this causes an exception, the quest is wrongly made
-                            outcomeProgress.setProgress(Integer.valueOf(outcomeProgress.getProgress().toString()) + 1);
+                    } else if (typeSegments[0].equals("killplayers")) {
+                        final int killsNeeded = Integer.valueOf(typeSegments[1]); // if this causes an exception, the quest is wrongly made
+                        outcomeProgress.setProgress(Integer.valueOf(outcomeProgress.getProgress().toString()) + 1);
 
-                            if (Integer.valueOf(outcomeProgress.getProgress().toString()) >= killsNeeded) {
-                                questInstance.objectiveComplete(objectiveProgress, outcomeProgress);
-                            }
+                        if (Integer.valueOf(outcomeProgress.getProgress().toString()) >= killsNeeded) {
+                            questInstance.objectiveComplete(objectiveProgress, outcomeProgress);
                         }
                     }
                 }
