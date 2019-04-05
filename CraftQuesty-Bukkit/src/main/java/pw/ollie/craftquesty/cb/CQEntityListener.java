@@ -1,8 +1,6 @@
-package pw.ollie.craftquesty.listener.mc;
+package pw.ollie.craftquesty.cb;
 
 import org.bukkit.event.Listener;
-
-import pw.ollie.craftquesty.CraftQuestyPlugin;
 
 /**
  * Listens to Bukkit {@link Event}s which are {@link EntityEvent}s for quest handling purposes.

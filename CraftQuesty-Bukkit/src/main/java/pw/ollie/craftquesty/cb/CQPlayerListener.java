@@ -1,10 +1,11 @@
-package pw.ollie.craftquesty.listener.mc;
+package pw.ollie.craftquesty.cb;
 
 import com.volumetricpixels.questy.QuestInstance;
 import com.volumetricpixels.questy.QuestManager;
 import com.volumetricpixels.questy.objective.ObjectiveProgress;
 import com.volumetricpixels.questy.objective.Outcome;
 import com.volumetricpixels.questy.objective.OutcomeProgress;
+
 import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Event;
@@ -14,7 +15,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageByEntityEvent;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
-import pw.ollie.craftquesty.CraftQuestyPlugin;
 
 import java.util.Collection;
 import java.util.Set;
